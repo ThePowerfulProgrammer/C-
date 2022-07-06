@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1653313862 source:c:\users\ashish\desktop\c++\stringmanipulation\month_date_year\main.cpp
+	<iostream>
+	<string>
+

@@ -1,0 +1,8 @@
+If a function should update the value of a variable, use a void function with a reference parameter.
+If a function should use the value of a variable and calculate a seperate value, leaving the variable unchanged
+use a value returning function with a value parameter.
+
+THINK CAREFULLY
+what should be local variables?
+what should be value parameters?
+what should be reference parameters?

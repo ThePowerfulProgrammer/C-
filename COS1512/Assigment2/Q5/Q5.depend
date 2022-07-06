@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1656758929 source:c:\users\ashish\desktop\c++\cos1512\assigment2\q5\main.cpp
+	<iostream>
+	<ctype.h>
+	<cstring>
+

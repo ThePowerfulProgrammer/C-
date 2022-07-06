@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1654790320 source:c:\users\ashish\desktop\c++\assignment3\bmi\main.cpp
+	<iostream>
+	<cmath>
+

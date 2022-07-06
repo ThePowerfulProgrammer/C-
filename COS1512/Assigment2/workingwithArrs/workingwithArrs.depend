@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1656694446 source:c:\users\ashish\desktop\c++\cos1512\assigment2\workingwitharrs\main.cpp
+	<iostream>
+	<ctype.h>
+	<cstring>
+

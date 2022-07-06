@@ -1,0 +1,3 @@
+Note that a global constant is acceptable, whereas a global variable is not.
+The problem with a global variable is that different functions can change its value willy-nilly, causing
+confusion. A global constant can’t be changed by different functions because it is a constant.

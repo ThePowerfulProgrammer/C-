@@ -1,0 +1,29 @@
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float total = 0.00;
+    float prices[6] = {1.00, 2.50, 3.20, 12.50, 4.25, 0.50} ;
+    int item_and_price;
+
+    cout << "Enter the item codes 0-5 , -1 to end:" << endl ;
+
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    do {
+
+    cin >> item_and_price ;
+    cout << "      R" << prices[item_and_price] << endl ;
+    total += prices[item_and_price] ;
+    cout << total << endl;
+
+    } while (item_and_price != -1) ;
+
+    cout << "The total is : "<< total ;
+
+
+    return 0;
+}

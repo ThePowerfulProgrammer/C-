@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1653410320 source:c:\users\ashish\desktop\c++\assignment2\testscoresq4\main.cpp
+	<iostream>
+	<algorithm>
+	<iomanip>
+
