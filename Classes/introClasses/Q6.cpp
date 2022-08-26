@@ -1,13 +1,3 @@
-
-/*
-to create a ADT from a class
-1. Make all the member variables private members of the class.
-2. Make each of the basic operations that the programmer needs a public 
-member function of the class, and fully specify how to use each such 
-public member function.
-3. Make any helping functions private member functions.
-
-*/
 #include <iostream>
 #include <string>
 using namespace std; 
@@ -15,13 +5,14 @@ using namespace std;
 class Movie {
     public:
         Movie(); // constructor which acts as mutator for movie name and FPB rating
-        void addRating(int number); // a number must be passed as a parameter (1-5) used to increment user ratings by 1
-        float getAverage(); // returns the average of ratings, all you need to do is copy and replace the following --> movie.getAverage(); where movie == Movie object
+        void addRating(int number);
+        float getAverage();
+        void getMovieDetails();
+        
     private:
         string movieName;
         string FPB_rating; //  A, PG, 7-9 PG, 10-12 PG, 13, 16, 18, X18, XX)
         int ratings[5] = {0,0,0,0,0}; // each index represents ratings 1 - ratings 5  
-        void getMovieDetails(); // helping functions needs to be private
 };
 
 Movie::Movie() {

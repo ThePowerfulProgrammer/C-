@@ -1,107 +1,103 @@
-#include <iostream>
-#include <string>
-using namespace std; 
+#include<iostream>
+using namespace std;
 
-class Movie {
-    public:
-        Movie(); // constructor which acts as mutator for movie name and FPB rating
-        void addRating(int number);
-        float getAverage();
-        void getMovieDetails();
-    private:
-        string movieName;
-        string FPB_rating; //  A, PG, 7-9 PG, 10-12 PG, 13, 16, 18, X18, XX)
-        int ratings[5] = {0,0,0,0,0}; // each index represents ratings 1 - ratings 5  
+class Movie
+{
+   //class variables
+   public:
+       string name;
+       string mpaa;
+       int ratings[5];
+      
+       //getter and setter 
+       string getName()
+       {
+           return this->name;
+       }
+      
+       void setName(string name)
+       {
+           this->name = name;
+       }
+      
+       string getMpaa()
+       {
+           return this->mpaa;
+       }
+      
+       void setMpaa(string mpaa)
+       {
+           this->mpaa = mpaa;
+       }
+      
+       //method to add a rating
+       void addRating(int rating)
+       {
+           // rating validation
+           if(rating >= 1 && rating <= 5)
+           {
+               switch(rating)
+               {
+                   case 1:
+                       ratings[0] += 1;
+                       break;
+                   case 2:
+                       ratings[1] += 1;
+                       break;
+                   case 3:
+                       ratings[2] += 1;
+                       break;
+                   case 4:
+                       ratings[3] += 1;
+                       break;
+                   case 5:
+                       ratings[4] += 1;
+                       break;
+               }
+           }
+           else
+           {
+               cout << "Rating invalid and therefore not considered" << endl;
+           }
+       }
+       //returns the avergae rating
+       double getAverage(){
+           double total = 0.0 + ratings[0] + ratings[1] + ratings[2] + ratings[3] + ratings[4];
+           return total/5;
+       }
+      
+       //constructor
+       Movie(string name, string mpaa)
+       {
+           setName(name);
+           setMpaa(mpaa);
+           ratings[0]= 0;
+           ratings[1] = 0;
+           ratings[2] = 0;
+           ratings[3] = 0;
+           ratings[4] = 0;
+       }
 };
 
-Movie::Movie() {
-    cout << "Enter movie name: ";
-    getline(cin, movieName, '\n');
-    cout << "Enter FPB rating: ";
-    getline(cin, FPB_rating, '\n');
+int main()
+{
+   // set and get data
+   Movie m1 = Movie("Deadpool", "X18");
+   m1.addRating(1);
+   m1.addRating(2);
+   m1.addRating(3);
+   m1.addRating(2);
+   m1.addRating(3);
+   cout << "Name: " << m1.getName() << "\t\tMPAA: " << m1.getMpaa() << "\t\tAverage Rating: " << m1.getAverage() << endl;
+  
+  // set and get data
+   Movie m2 = Movie("Wonderwoman", "10-12 PG");
+   m2.addRating(5);
+   m2.addRating(1);
+   m2.addRating(4);
+   m2.addRating(4);
+   m2.addRating(5);
+   cout << "Name: " << m2.getName() << "\tMPAA: " << m2.getMpaa() << "\t\tAverage Rating: " << m2.getAverage() << endl;
+  
+   return 0;
 }
-
-void Movie::addRating(int number) {
-    // validate and only if 1 <= number <= 5, increment 
-    if (number < 1 || number > 5) {
-        // Nothing stated in pdf so 
-        cout << "Rating is out of range and therefore not considered " << endl;
-    } 
-    else {
-        switch (number) {
-            case 1:
-                ratings[0] ++;
-                break;
-            case 2:
-                ratings[1] ++;
-                break;
-            case 3:
-                ratings[2] ++;
-                break;
-            case 4:
-                ratings[3] ++;
-                break;
-            case 5:
-                ratings[4] ++;
-                break;
-        }
-    }
-    cout << "current ratings: "<< ratings[0] << ratings[1] << ratings[2] << ratings[3] << ratings[4] << endl;
-}
-
-float Movie::getAverage() {
-    float avg = 0; // sum of all ratings / 5
-    int sum = ratings[0] + ratings[1] + ratings[2] + ratings[3] + ratings[4];
-    avg = (sum/5);
-    return avg;
-}
-
-void Movie::getMovieDetails() {
-    cout << "Movie details " << endl;
-    cout << movieName << endl;
-    cout << FPB_rating << endl;
-}
-
-int main() {
-    // create 2 Movie objs
-    Movie movie1;
-    Movie movie2;
-    
-    // add 5 ratings for movie1
-    for (int i = 0; i<5; i++) {
-        int r;
-        cout << "Enter rating for movie1: ";
-        cin >> r;
-        movie1.addRating(r);
-        cout << endl;
-    }
-    
-    // add 5 ratings for movie2
-    for (int i = 0; i<5; i++) {
-        int r;
-        cout << "Enter rating for movie2: ";
-        cin >> r;
-        movie2.addRating(r);
-        cout << endl;
-    }
-    
-    // average rating
-    float avg1 = movie1.getAverage();
-    float avg2 = movie2.getAverage();
-    
-    // display Movie info
-    
-    movie1.getMovieDetails();
-    cout << avg1 << endl;
-    movie2.getMovieDetails();
-    cout << avg2 << endl;
-    
-    return 0;
-    
-}
-
-
-
-
-
-
