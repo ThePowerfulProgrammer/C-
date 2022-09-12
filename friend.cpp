@@ -18,7 +18,7 @@ class Money{
             return temp;
         }
 
-        // Overload // 
+        // Overload 
         bool operator == (Money rightPosistion) {
             if (rands == rightPosistion.rands && cents == rightPosistion.cents) {
                 return true;   
