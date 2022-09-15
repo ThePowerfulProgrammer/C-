@@ -112,3 +112,22 @@ void BankAccount::output(ostream& outs) {
     outs << "Account balance $ " <<  balance << endl;
     outs << "interest Rate " << interestRate << "%" << endl;
 }
+
+/* sample run
+                    Sample Dialogue
+
+                    Start of Test:
+                    account1 initial statement:
+                    Account balance $123.99
+                    Interest rate 3.00%
+                    account1 with new setup:
+                    Account balance $100.00
+                    Interest rate 5.00%
+                    account1 after update:
+                    Account balance $105.00
+                    Interest rate 5.00%
+                    account2:
+                    Account balance $105.00
+                    Interest rate 5.00%
+
+*/
