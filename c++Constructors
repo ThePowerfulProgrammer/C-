@@ -1,0 +1,88 @@
+ 1 //Program to demonstrate the class BankAccount.
+ 2 #include <iostream> 
+ 3 using namespace std;
+ 4 //Class for a bank account:
+ 5 class BankAccount
+ 6 {
+ 7 public:
+ 8 BankAccount(int dollars, int cents, double rate);
+ 9 //Initializes the account balance to $dollars.cents and
+10 //initializes the interest rate to rate percent.
+11 BankAccount(int dollars, double rate);
+12 //Initializes the account balance to $dollars.00 and
+13 //initializes the interest rate to rate percent.
+14 BankAccount( );
+15 //Initializes the account balance to $0.00
+16 //and the interest rate to 0.0%.
+17 void set(int dollars, int cents, double rate);
+18 //Postcondition: The account balance has been set to $dollars.cents;
+19 //The interest rate has been set to rate percent.
+20 void set(int dollars, double rate);
+21 //Postcondition: The account balance has been set to $dollars.00.
+22 //The interest rate has been set to rate percent.
+23 void update( );
+24 //Postcondition: One year of simple interest has been added
+25 //to the account balance.
+26 double getBalance( );
+27 //Returns the current account balance.
+28 double getRate( );
+29 //Returns the current account interest rate as a percentage.
+30 void output(ostream& outs);
+31 //Precondition: If outs is a file output stream, then
+32 //outs has already been connected to a file.
+33 //Postcondition: Account balance and interest rate
+34 //have been written to the stream outs.
+35 private:
+36 double balance;
+37 double interestRate;
+38 double fraction(double percent);
+39 //Converts a percentage to a fraction. For example, fraction(50.3)
+40 //returns 0.503.
+41 }; 
+42 int main( )
+43 {
+44 BankAccount account1(100, 2.3), account2;
+45 cout << "account1 initialized as follows:\n";
+46 account1.output(cout);
+47 cout << "account2 initialized as follows:\n";
+48 account2.output(cout); 
+49 account1 = BankAccount(999, 99, 5.5);
+50 cout << "account1 reset to the following:\n";
+51 account1.output(cout);
+52 return 0;
+53 }
+54 BankAccount::BankAccount(int dollars, int cents, double rate)
+55 {
+56 if ((dollars < 0) || (cents < 0) || (rate < 0))
+57 {
+58 cout << "Illegal values for money or interest rate.\n";
+59 return;66 if ((dollars < 0) || (rate < 0))
+67 {
+68 cout << "Illegal values for money or interest rate.\n";
+69 return;
+70 }
+71 balance = dollars;
+72 interestRate = rate;
+73 }
+74 BankAccount::BankAccount( ) : balance(0), interestRate(0.0)
+75 {
+76 //Body intentionally empty
+77 }
+60 }
+61 balance = dollars + 0.01 * cents;
+62 interestRate = rate;
+63 }
+64 BankAccount::BankAccount(int dollars, double rate)
+65 {
+66 if ((dollars < 0) || (rate < 0))
+67 {
+68 cout << "Illegal values for money or interest rate.\n";
+69 return;
+70 }
+71 balance = dollars;
+72 interestRate = rate;
+73 }
+74 BankAccount::BankAccount( ) : balance(0), interestRate(0.0)
+75 {
+76 //Body intentionally empty
+77 }
