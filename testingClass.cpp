@@ -7,6 +7,7 @@ class Money {
         Money();
         Money(int x, int y);
         friend Money operator +(const Money& leftPos, const Money& rightPos);
+        friend bool operator ==(const Money& leftPos, const Money& rightPos);
         int getRands();
         int getCents();
     private:
@@ -37,6 +38,10 @@ Money operator +(const Money& leftPos, const Money& rightPos) {
     return temp;
 }
 
+bool operator ==(const Money& leftPos, const Money& rightPos) {
+    return ((leftPos.rands == rightPos.rands) && (leftPos.cents == rightPos.cents) );
+}
+
 int Money::getRands() {
     return rands;
 }
@@ -46,16 +51,21 @@ int Money::getCents() {
 }
 
 int main() {
-    Money money1(10,50);
-    Money money2(15, 25);
-    Money money3 = money1 + money2;
+    Money wallet1(10,15);
+    Money wallet2(10, 15);
+    Money wallet3 = wallet1 + wallet2;
     
-    cout << "R" << money1.getRands() << "." << money1.getCents() << endl;
-    cout << "R" << money2.getRands() << "." << money2.getCents() << endl;
+    cout << "R" << wallet1.getRands() << "." << wallet1.getCents() << endl;
+    cout << "R" << wallet2.getRands() << "." << wallet2.getCents() << endl;
     
-    cout << "R" << money3.getRands() << "." << money3.getCents() << endl;
+    cout << "R" << wallet3.getRands() << "." << wallet3.getCents() << endl;
     
-    
+    if (wallet1 == wallet2) {
+        cout << "Equal " << endl;
+    }
+    else {
+        cout << "Unequal" << endl;
+    }
     return 0;
 }
 
