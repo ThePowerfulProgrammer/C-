@@ -8,41 +8,33 @@ using namespace std;
 
 string convertDate(string americanDateP) 
 {
-    int startD;
-    int endM;
-    string Month;
-    string day;
-    string year;
+    // get date
+    int dateStart = americanDateP.find(" ");
+    string date = americanDateP.substr(dateStart+1, 2);
+
+    // get month
+    string month = americanDateP.substr(0, dateStart);
+
+    // get year
+    int yearStart = americanDateP.find(",");
+    string year = americanDateP.substr(yearStart+2,4);
+
+    //create new date format
     string internationalDate;
+    internationalDate.insert(0,date);
+    internationalDate.insert(internationalDate.size()," ");
+    internationalDate.insert(internationalDate.size(), month);
+    internationalDate.insert(internationalDate.size(), " ");
+    internationalDate.insert(internationalDate.size(), year);
     
-    startD = americanDateP.find(" ");
-    cout << americanDateP.substr(startD+1,2) << endl;
     
-    
-    return "";   
-
+    return internationalDate;   
 }
-/*
-A number of stringmember functions to help you
-StringObject.size( ) 
-StringObject.substr(startPos, length) 
-StringObject.find(substring) 
-StringObject.find(substring, startPos) 
-StringObject.insert(insertPos, substring); 
-StringObject.erase(startPos, length); 
-StringObject.replace(startPos, length, substring); 
-where 
-startPos, lengthand insertPosare of type int, and 
-substringis of type string.
-*/
-
 
 int main()
-{
+{   
     string americanDate;
-    //getline(cin, americanDate, '\n');
-    //cout << convertDate() << endl;
-    cout << convertDate("January 29, 1953.");
-
+    getline(cin, americanDate, '\n');
+    cout << convertDate(americanDate);
     return 0;
 }
