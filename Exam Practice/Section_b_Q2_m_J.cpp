@@ -27,6 +27,7 @@ int main()
             case '2':
                 totalAmount += SUNDAY;
                 nrSundays +=1;
+                break;
         }
         cout << endl;
     } while (whichDay != 'x');
