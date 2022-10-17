@@ -37,7 +37,7 @@ void findMostSubs(string publications[], int subscribers[], string & mostSubscri
 
 int main() {
     string publications[NUM_PUBS] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}; // titles of the publications 
-    int subscriptions[NUM_PUBS] = {1,2,300,4,5,6,8,7,90,10}; // number of subscriptions for the 
+    int subscriptions[NUM_PUBS] = {100,2,300,4,5,6,8,7,90,10}; // number of subscriptions for the 
     int nrMostSubscriptions; // number of subscriptions for 
     string mostSubscriptions; // title of publication with most subscriptions
     
