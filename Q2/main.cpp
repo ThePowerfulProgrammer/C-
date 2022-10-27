@@ -2,30 +2,66 @@
 
 using namespace std;
 
+class A
+{
+    // private to all expect within class
+    private:
+        int x;
+    // inherited by children
+    protected:
+        int getX();
+    public:
+        void setX();
+};
+
+// issue
+int A::getX() {
+    return x;
+}
+
+void A::setX() {
+    x=10;
+}
+
+//------------------------------------------------
+class B
+{
+    private:
+        int y;
+    protected:
+        A objA;
+        int getY();
+    public:
+        void setY();
+};
+
+void B::setY() {
+    y=24;
+    // issue int a = objA.getX();
+}
+
+//-----------------------------------------------
+class C: public A
+{
+    protected:
+        int z;
+    public:
+        int getZ();
+        void setZ();
+};
+
+int C::getZ() {
+    return z;
+}
+
+void C::setZ() {
+    z=65;
+}
+
 int main()
 {
-    // initilise variables
-    int nrPupils = 56 ;
-    int nrGroups ;
-    int nrLeft ;
-    int groupSize ;
-
-
-    // Ask for group size
-    cout << "Please enter the size of each group " ;
-    cin >> groupSize ;
-
-    // set nrGroups and nrLeft if any
-    nrGroups = nrPupils / groupSize ;
-    nrLeft = nrPupils % groupSize ;
-
-    cout << "There are " << nrGroups << " groups consisting of " << groupSize << endl ;
-    cout << "pupils. " << "There are " << nrLeft << " remaining pupils" << endl ;
-
-
-
-
-
-
+    A a1;
+    a1.getX();
+    cout << "Hello world!" << endl;
     return 0;
 }
