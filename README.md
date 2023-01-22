@@ -1,4 +1,4 @@
-# C-
+# C++
 COS1511 &amp; COS1512 
 Includes:
           Intro to c++;
